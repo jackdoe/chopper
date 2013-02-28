@@ -7,11 +7,11 @@ sub s {
 use constant DBH => DBI->connect("dbi:SQLite:dbname=".main::path('app','db','demo.db'),"","");
 use constant ROUTE => {
                                 GET =>  { 
-                                           qr/\/person\/index\/$/ => ['Person','index'],
-                                           '/sub' => \&s
+                                           qr#^/person/index/$# => ['Person','index'],
+                                           qr#^/sub$# => \&s
                                         },
                                 POST => {
-                                           '/person/add'      => ['Person','add'],
+                                           qr#^/person/add$#      => ['Person','add'],
                                         }
                          };
 #use constant SESSION => undef;

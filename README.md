@@ -16,6 +16,25 @@ app/models
 app/models/Person.pm
 ```
 
+example of app/conf/config.pm:
+```
+
+sub coderef {
+        return "you can also add routes as coderefs\n";
+}
+use constant ROUTE => {
+                                GET =>  { 
+                                           qr#^/person/index/$# => ['Person','index'],
+                                           qr#^/sub$# => \&coderef
+                                        },
+                                POST => {
+                                           qr#^/person/add$#      => ['Person','add'],
+                                        }
+                         };
+use constant SESSION => { key => 'chop.s', secret => 'ASD8aSD****ASdyasd6tA^%12' };
+1;
+```
+
 ### install
 
 ```
