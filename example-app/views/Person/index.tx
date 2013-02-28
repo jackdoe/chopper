@@ -1,0 +1,10 @@
+<h1><: $title :></h1>
+<ul>
+: for $people -> $person {
+        <li><: $person.name :></li>
+: } # for
+</ul>
+<form method='POST' action='/person/add?x=test'>
+<input type=text name='name'>
+<input type=submit>
+</form>
