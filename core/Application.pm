@@ -14,7 +14,7 @@ sub new {
                    };
         bless ($self,$class);
         $self->reset();
-        $self->{session} = Session->new($self,$args->{cookie});
+        $self->{session} = Session->new($self);
         return $self;
 }
 sub reset {

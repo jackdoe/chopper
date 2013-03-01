@@ -30,7 +30,7 @@ use constant ROUTE => {
                                 POST => {
                                            qr#^/person/add$#      => ['Person','add'],
                                         }
-                         };
+                      };
 use constant SESSION => { key => 'chop.s', secret => 'ASD8aSD****ASdyasd6tA^%12' };
 1;
 ```
