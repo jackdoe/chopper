@@ -6,10 +6,9 @@ use warnings;
 sub new {
         my $class = shift;
         my ($args) = @_;
-        my $params = {CGI->new($args->{in})->Vars,CGI->new($args->{env}->{QUERY_STRING})->Vars};
+        CGI->_reset_globals;
         my $self = { 
-                        params => $params, 
-                        env => $args->{env},
+                        cgi => CGI->new,
                         debug => $args->{debug},
                    };
         bless ($self,$class);
@@ -53,7 +52,7 @@ sub error {
 
 sub env {
         my ($self,$key) = @_;
-        return $self->{env}->{$key};
+        return $ENV{$key};
 }
 
 sub route {

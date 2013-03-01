@@ -1,4 +1,4 @@
-<h1><: $title :></h1>
+<h1><: $title :> - session visit count: <: $count :></h1>
 <ul>
 : for $people -> $person {
         <li><: $person.name :></li>

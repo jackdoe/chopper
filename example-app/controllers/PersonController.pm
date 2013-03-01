@@ -2,11 +2,12 @@ package PersonController;
 our @ISA = qw(Controller);
 sub index {
         my ($self,$app,$session) = @_;
-
-        $session->set('x','123123');
+        $count = int($session->get('count')) + 1;
+        $session->set('count',$count);
         return $self->render({ 
                                 title => 'A list of people',
-                                people => Person::list()
+                                people => Person::list(),
+                                count => $count
                             });
 }
 sub add {
