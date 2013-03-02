@@ -47,7 +47,7 @@ sub error {
         $self->say($message);
         $self->say(" [ $debug ] ") if $debug && $self->{debug} > 0;
         my ($package, $filename, $line) = caller;
-        die "$filename:$line { $package } $message";
+        die "$filename:$line { $package } $message [ $debug ]";
 }
 
 sub env {

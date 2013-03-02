@@ -47,7 +47,7 @@ sub generate_cookie {
         return undef unless defined CONFIG->SESSION;
         my $key = CONFIG->SESSION->{key} || 'chop.session';
         my $cookie = CGI::Cookie->parse($app->env('HTTP_COOKIE'))->{$key};
-        my $decrypted = $cookie ? Session::decrypt($cookie->value) : undef;
+        my $decrypted = $cookie ? Session::decrypt($app->sanitize($cookie->value)) : undef;
         if (!$cookie || !$self->valid($app,$decrypted)) {
                 $decrypted = Session::session_id();
                 $cookie = CGI::Cookie->new(-name => $key, -value => Session::encrypt($decrypted));
