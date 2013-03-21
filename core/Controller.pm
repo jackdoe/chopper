@@ -16,8 +16,8 @@ sub render {
 sub params {
         my ($self,$key) = @_;
         my $r = $self->{app}->{cgi};
-        use Data::Dumper;
-        print Dumper({$r->Vars});
+#        use Data::Dumper;
+#        print Dumper({$r->Vars});
         return ($key ? $r->param($key) : {$r->Vars});
 }
 1;
